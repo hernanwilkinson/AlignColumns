@@ -10,11 +10,11 @@ class AlignColumns {
 
         return this._lines.map(line =>
             (this._lines[0]??[]).map( (_,columnIndex) =>
-                line[columnIndex] + ' '.repeat(maxColumnSizes[columnIndex] - line[columnIndex].length)))
+                (line[columnIndex]??'') + ' '.repeat(maxColumnSizes[columnIndex] - (line[columnIndex]??[]).length)))
     }
 
     maxColumnSizeAt(columnIndex) {
-        return Math.max(0, ...this._lines.map(line => line[columnIndex].length));
+        return Math.max(0, ...this._lines.map(line => (line[columnIndex]??[]).length));
     }
 }
 
