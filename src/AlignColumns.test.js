@@ -82,10 +82,16 @@ class AlignColumns {
             return '**\n' +
                 '||\n' +
                 '**';
-        else
+        else if(linesWithAlignColumns[0].length==1)
             return '*' + '-'.repeat((linesWithAlignColumns[0])[0].length)+ '*\n' +
                 '|' + (linesWithAlignColumns[0])[0] + '|\n' +
                 '*' + '-'.repeat((linesWithAlignColumns[0])[0].length)+ '*';
+        else {
+            const separator = '*' + '-'.repeat((linesWithAlignColumns[0])[0].length) + '*' + '-'.repeat((linesWithAlignColumns[0])[1].length) + '*';
+            return separator +'\n' +
+                '|' + (linesWithAlignColumns[0])[0] + '|' + (linesWithAlignColumns[0])[1] + '|\n' +
+                separator
+        }
     }
 }
 
