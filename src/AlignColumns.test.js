@@ -196,4 +196,14 @@ describe('Align Columns suite', () => {
             '*---*-*')
     })
 
+    test('Can generate string output with many lines and many columns', () => {
+        const stringOutput = AlignColumns.asString('123$a\n1$abc', new CenterAlignment());
+        expect(stringOutput).toEqual(
+            '*---*---*\n' +
+            '|123| a |\n' +
+            '| 1 |abc|\n' +
+            '*---*---*')
+    })
+
+
 })
