@@ -175,4 +175,13 @@ describe('Align Columns suite', () => {
             '|123|\n' +
             '*---*')
     })
+
+    test('Can generate string output one line with many columns', () => {
+        const stringOutput = AlignColumns.asString('123$a', new CenterAlignment());
+        expect(stringOutput).toEqual(
+            '*---*-*\n' +
+            '|123|a|\n' +
+            '*---*-*')
+    })
+
 })
