@@ -45,4 +45,9 @@ describe('Align Columns suite', () => {
         expect(alignColumns.value()).toEqual([['12  '],['1234']])
     })
 
+    test('Align lines with more than one column', () => {
+        const alignColumns = new AlignColumns([['12','abc'],['1234','ab']])
+        expect(alignColumns.value()).toEqual([['12  ','abc'],['1234','ab ']])
+    })
+
 })
