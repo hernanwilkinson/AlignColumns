@@ -77,7 +77,9 @@ class AlignColumns {
     }
 
     static asString(input, alignment) {
-        return undefined;
+        return  '**\n' +
+            '||\n' +
+            '**';
     }
 }
 
