@@ -6,7 +6,7 @@ class AlignColumns {
     }
 
     value() {
-        this.maxColumnSizes();
+        this.calculateMaxColumnSizes();
 
         return this._lines.map(line =>
             this.alignColumnOfLine(line))
@@ -17,7 +17,7 @@ class AlignColumns {
             (line[columnIndex] ?? '') + ' '.repeat(columnSize - (line[columnIndex] ?? []).length));
     }
 
-    maxColumnSizes() {
+    calculateMaxColumnSizes() {
         this._maxColumnSizes = []
         this._lines.forEach( line => {
             line.forEach( (cell,index) => {
