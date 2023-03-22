@@ -9,8 +9,12 @@ class AlignColumns {
         const maxColumnSizes = this.maxColumnSizes();
 
         return this._lines.map(line =>
-            maxColumnSizes.map( (columnSize,columnIndex) =>
-                (line[columnIndex]??'') + ' '.repeat(columnSize - (line[columnIndex]??[]).length)))
+            this.alignColumnOfLine(maxColumnSizes, line))
+    }
+
+    alignColumnOfLine(maxColumnSizes, line) {
+        return maxColumnSizes.map((columnSize, columnIndex) =>
+            (line[columnIndex] ?? '') + ' '.repeat(columnSize - (line[columnIndex] ?? []).length));
     }
 
     maxColumnSizes() {
