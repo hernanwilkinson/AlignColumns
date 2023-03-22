@@ -12,8 +12,8 @@ class AlignColumns {
             maxColumnSizes.push(this.maxColumnSizeAt(columnIndex))
 
         return this._lines.map(line =>
-            maxColumnSizes.map( (_,columnIndex) =>
-                (line[columnIndex]??'') + ' '.repeat(maxColumnSizes[columnIndex] - (line[columnIndex]??[]).length)))
+            maxColumnSizes.map( (columnSize,columnIndex) =>
+                (line[columnIndex]??'') + ' '.repeat(columnSize - (line[columnIndex]??[]).length)))
     }
 
     maxColumnSizeAt(columnIndex) {
