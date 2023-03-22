@@ -6,25 +6,24 @@ class AlignColumns {
     }
 
     value() {
-        const maxColumnSizes = this.maxColumnSizes();
+        this.maxColumnSizes();
 
         return this._lines.map(line =>
-            this.alignColumnOfLine(maxColumnSizes, line))
+            this.alignColumnOfLine(line))
     }
 
-    alignColumnOfLine(maxColumnSizes, line) {
-        return maxColumnSizes.map((columnSize, columnIndex) =>
+    alignColumnOfLine(line) {
+        return this._maxColumnSizes.map((columnSize, columnIndex) =>
             (line[columnIndex] ?? '') + ' '.repeat(columnSize - (line[columnIndex] ?? []).length));
     }
 
     maxColumnSizes() {
-        const maxColumnSizes = []
+        this._maxColumnSizes = []
         this._lines.forEach( line => {
             line.forEach( (cell,index) => {
-                maxColumnSizes[index] = Math.max(maxColumnSizes[index]??0,cell.length)
+                this._maxColumnSizes[index] = Math.max(this._maxColumnSizes[index]??0,cell.length)
             })
         })
-        return maxColumnSizes;
     }
 }
 
