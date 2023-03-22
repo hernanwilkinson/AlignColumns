@@ -94,13 +94,16 @@ class AlignColumns {
 
             return separator +'\n' +
                 linesWithAlignColumns
-                    .map(line =>
-                        line
-                            .map( cell => '|' + cell )
-                            .reduce((prev,current) => prev + current, '') + '|\n')
+                    .map(line => this.stringFor(line))
                     .reduce((prev,current) => prev + current, '') +
                 separator
         }
+    }
+
+    static stringFor(line) {
+        return line
+            .map(cell => '|' + cell)
+            .reduce((prev, current) => prev + current, '') + '|\n';
     }
 }
 
