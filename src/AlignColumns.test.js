@@ -64,14 +64,15 @@ class AlignColumns {
     }
 
     static from(input, alignment) {
-        let lines;
+        let linesWithColumns;
         if(input.length==0)
-            lines = []
-        else
-            lines = input.split('\n')
-            lines = lines.map(line => line.split('$'))
+            linesWithColumns = []
+        else {
+            const lines = input.split('\n')
+            linesWithColumns = lines.map(line => line.split('$'))
+        }
 
-        return new AlignColumns(lines,alignment).value()
+        return new AlignColumns(linesWithColumns,alignment).value()
     }
 }
 
