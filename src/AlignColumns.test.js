@@ -6,16 +6,16 @@ class AlignColumns {
     }
 
     value() {
-        const maxColumnSize = this.maxColumnSize()
-        return this.linesWithAlignColumns(maxColumnSize)
-    }
-
-    linesWithAlignColumns(maxColumnSize) {
-        return this._lines.map(line => [line[0] + ' '.repeat(maxColumnSize - line[0].length)]);
-    }
-
-    maxColumnSize() {
-        return Math.max(0, ...this._lines.map(line => line[0].length));
+        if((this._lines[0]??[]).length==1) {
+            const maxColumnSize = Math.max(0, ...this._lines.map(line => line[0].length))
+            return this._lines.map(line => [line[0] + ' '.repeat(maxColumnSize - line[0].length)])
+        } else {
+            const maxColumnSize0 = Math.max(0, ...this._lines.map(line => line[0].length))
+            const maxColumnSize1 = Math.max(0, ...this._lines.map(line => line[1].length))
+            return this._lines.map(line =>
+                [line[0] + ' '.repeat(maxColumnSize0 - line[0].length),
+                 line[1] + ' '.repeat(maxColumnSize1 - line[1].length)])
+        }
     }
 }
 
