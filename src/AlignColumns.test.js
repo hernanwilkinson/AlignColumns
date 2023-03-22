@@ -64,7 +64,13 @@ class AlignColumns {
     }
 
     static from(input, alignment) {
-        return new AlignColumns([[]],alignment).value()
+        let lines;
+        if(input.length==0)
+            lines = []
+        else
+            lines = [[input]]
+
+        return new AlignColumns(lines,alignment).value()
     }
 }
 
@@ -121,7 +127,7 @@ describe('Align Columns suite', () => {
 
     test('Can align an empty string', () => {
         const alignColumns = AlignColumns.from('', new CenterAlignment());
-        expect(alignColumns).toEqual([[]])
+        expect(alignColumns).toEqual([])
     })
 
     test('Can align one line with one column', () => {
