@@ -31,4 +31,9 @@ describe('Align Columns suite', () => {
         expect(alignColumns.value()).toEqual([['1234'],['12  ']])
     })
 
+    test('Max column width can be in any line', () => {
+        const alignColumns = new AlignColumns([['12'],['1234']])
+        expect(alignColumns.value()).toEqual([['12  '],['1234']])
+    })
+
 })
