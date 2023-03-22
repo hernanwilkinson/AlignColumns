@@ -124,4 +124,8 @@ describe('Align Columns suite', () => {
         expect(alignColumns).toEqual([[]])
     })
 
+    test('Can align one line with one column', () => {
+        const alignColumns = AlignColumns.from('123', new CenterAlignment());
+        expect(alignColumns).toEqual([['123']])
+    })
 })
