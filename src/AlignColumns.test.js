@@ -6,7 +6,10 @@ class AlignColumns {
     }
 
     value() {
-        return this._lines;
+        if(this._lines.length==0)
+            return []
+        if(this._lines.length==1)
+            return [[(this._lines[0])[0]]];
     }
 }
 
