@@ -77,9 +77,15 @@ class AlignColumns {
     }
 
     static asString(input, alignment) {
-        return  '**\n' +
-            '||\n' +
-            '**';
+        const linesWithAlignColumns = this.from(input,alignment)
+        if(linesWithAlignColumns.length==0)
+            return '**\n' +
+                '||\n' +
+                '**';
+        else
+            return '*' + '-'.repeat((linesWithAlignColumns[0])[0].length)+ '*\n' +
+                '|' + (linesWithAlignColumns[0])[0] + '|\n' +
+                '*' + '-'.repeat((linesWithAlignColumns[0])[0].length)+ '*';
     }
 }
 
