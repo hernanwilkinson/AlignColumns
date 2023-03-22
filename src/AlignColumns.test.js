@@ -21,7 +21,7 @@ class RightAlignment extends Alignment {
     }
 }
 
-class CenterAlignment {
+class CenterAlignment extends Alignment {
     value(toAlign,size){
         const leftSpaces = Math.ceil((size - toAlign.length) / 2)
         const rightSpaces = size - toAlign.length - leftSpaces
@@ -61,6 +61,10 @@ class AlignColumns {
                 this._maxColumnSizes[index] = Math.max(this._maxColumnSizes[index]??0,cell.length)
             })
         })
+    }
+
+    static from(input, alignment) {
+        return undefined;
     }
 }
 
@@ -114,4 +118,10 @@ describe('Align Columns suite', () => {
         const alignColumns = new AlignColumns([['12','abc'],['1234','ab']], new CenterAlignment())
         expect(alignColumns.value()).toEqual([[' 12 ','abc'],['1234',' ab']])
     })
+
+    test('Can align an empty string', () => {
+        const alignColumns = AlignColumns.from('', new CenterAlignment());
+        expect(alignColumns).toEqual([[]])
+    })
+
 })
