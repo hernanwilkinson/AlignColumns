@@ -64,7 +64,7 @@ class AlignColumns {
     }
 
     static from(input, alignment) {
-        return undefined;
+        return new AlignColumns([[]],alignment).value()
     }
 }
 
