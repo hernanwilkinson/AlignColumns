@@ -1,10 +1,12 @@
 class AlignColumns {
-    constructor(lines) {
+    _lines;
 
+    constructor(lines) {
+        this._lines = lines;
     }
 
     value() {
-        return [];
+        return this._lines;
     }
 }
 
