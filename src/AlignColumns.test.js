@@ -25,4 +25,10 @@ describe('Align Columns suite', () => {
         const alignColumns = new AlignColumns([['1234'],['abcd']])
         expect(alignColumns.value()).toEqual([['1234'],['abcd']])
     })
+
+    test('Columns of different lines should have the same width', () => {
+        const alignColumns = new AlignColumns([['1234'],['12']])
+        expect(alignColumns.value()).toEqual([['1234'],['12  ']])
+    })
+
 })
