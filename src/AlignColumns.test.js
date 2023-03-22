@@ -1,10 +1,21 @@
-class LeftAlignment {
+/**
+ *  @abstract
+ */
+class Alignment {
+    /**
+     *  @abstract
+     */
+    value(toAlign, size) {
+    }
+}
+
+class LeftAlignment extends Alignment {
     value(toAlign, size) {
         return toAlign + ' '.repeat(size - toAlign.length)
     }
 }
 
-class RightAlignment {
+class RightAlignment extends Alignment {
     value(toAlign, size) {
         return ' '.repeat(size - toAlign.length) + toAlign
     }
