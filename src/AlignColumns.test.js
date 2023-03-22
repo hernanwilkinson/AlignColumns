@@ -64,9 +64,7 @@ class AlignColumns {
     }
 
     static from(input, alignment) {
-        let linesWithColumns = this.linesWithColumnsFrom(input);
-
-        return new AlignColumns(linesWithColumns,alignment).value()
+        return new AlignColumns(this.linesWithColumnsFrom(input),alignment).value()
     }
 
     static linesWithColumnsFrom(input) {
