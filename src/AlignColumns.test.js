@@ -89,7 +89,9 @@ class AlignColumns {
         else {
             const separator = '*' + '-'.repeat((linesWithAlignColumns[0])[0].length) + '*' + '-'.repeat((linesWithAlignColumns[0])[1].length) + '*';
             return separator +'\n' +
-                '|' + (linesWithAlignColumns[0])[0] + '|' + (linesWithAlignColumns[0])[1] + '|\n' +
+                linesWithAlignColumns[0]
+                    .map( cell => '|' + cell )
+                    .reduce((prev,current) => prev + current, '') + '|\n' +
                 separator
         }
     }
