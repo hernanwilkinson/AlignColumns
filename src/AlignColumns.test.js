@@ -83,15 +83,19 @@ class AlignColumns {
                 '||\n' +
                 '**';
         else {
-            const separator =
-                linesWithAlignColumns[0]
-                    .map( cell => '*' + '-'.repeat(cell.length) )
-                    .reduce((prev,current) => prev + current, '') + '*'
+            // Hay que reemplazar todo esto por uso de stream
+            const separator = this.separatorFor(linesWithAlignColumns)
 
             return separator +'\n' +
                 this.stringForAll(linesWithAlignColumns) +
                 separator
         }
+    }
+
+    static separatorFor(linesWithAlignColumns) {
+        return linesWithAlignColumns[0]
+            .map(cell => '*' + '-'.repeat(cell.length))
+            .reduce((prev, current) => prev + current, '') + '*';
     }
 
     static stringForAll(linesWithAlignColumns) {
