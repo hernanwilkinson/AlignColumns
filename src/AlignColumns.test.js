@@ -7,7 +7,11 @@ class AlignColumns {
 
     value() {
         const maxColumnSize = this.maxColumnSize()
-        return this._lines.map(line => [line[0] + ' '.repeat(maxColumnSize - line[0].length)])
+        return this.linesWithAlignColumns(maxColumnSize)
+    }
+
+    linesWithAlignColumns(maxColumnSize) {
+        return this._lines.map(line => [line[0] + ' '.repeat(maxColumnSize - line[0].length)]);
     }
 
     maxColumnSize() {
