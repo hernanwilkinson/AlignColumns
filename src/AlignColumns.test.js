@@ -10,6 +10,8 @@ class AlignColumns {
             return []
         if(this._lines.length==1)
             return [[(this._lines[0])[0]]];
+        if(this._lines.length==2)
+            return [[(this._lines[0])[0]],[(this._lines[1])[0]]];
     }
 }
 
