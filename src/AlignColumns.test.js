@@ -15,9 +15,11 @@ class AlignColumns {
 
     maxColumnSizes() {
         const maxColumnSizes = []
-        const maxNumberOfColumns = Math.max(0, ...this._lines.map(line => line.length))
-        for (let columnIndex = 0; columnIndex < maxNumberOfColumns; columnIndex++)
-            maxColumnSizes.push(Math.max(0, ...this._lines.map(line => (line[columnIndex] ?? []).length)))
+        this._lines.forEach( line => {
+            line.forEach( (cell,index) => {
+                maxColumnSizes[index] = Math.max(maxColumnSizes[index]??0,cell.length)
+            })
+        })
         return maxColumnSizes;
     }
 }
