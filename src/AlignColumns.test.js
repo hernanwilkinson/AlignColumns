@@ -68,13 +68,16 @@ class AlignColumns {
     }
 
     static linesWithColumnsFrom(input) {
-        let linesWithColumns;
         if (input.length == 0)
             return []
         else {
             const lines = input.split('\n')
             return lines.map(line => line.split('$'))
         }
+    }
+
+    static asString(input, alignment) {
+        return undefined;
     }
 }
 
@@ -147,5 +150,13 @@ describe('Align Columns suite', () => {
     test('Can align many lines with many columns', () => {
         const alignColumns = AlignColumns.from('123$abc\n1$a', new CenterAlignment());
         expect(alignColumns).toEqual([['123','abc'],[' 1 ',' a ']])
+    })
+
+    test('Can generate string output from empty input', () => {
+        const stringOutput = AlignColumns.asString('', new CenterAlignment());
+        expect(stringOutput).toEqual(
+            '**\n' +
+            '||\n' +
+            '**')
     })
 })
