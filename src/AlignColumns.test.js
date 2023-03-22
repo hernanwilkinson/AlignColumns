@@ -1,8 +1,21 @@
+class LeftAlignment {
+    value(toAlign, size) {
+        return toAlign + ' '.repeat(size - toAlign.length)
+    }
+}
+
+class RightAlignment {
+    value(toAlign, size) {
+        return ' '.repeat(size - toAlign.length) + toAlign
+    }
+}
+
 class AlignColumns {
     _lines;
 
-    constructor(lines) {
+    constructor(lines, alignment = new LeftAlignment()) {
         this._lines = lines
+        this._alignment = alignment;
     }
 
     value() {
@@ -16,8 +29,10 @@ class AlignColumns {
     }
 
     alignColumnOfLine(line) {
-        return this._maxColumnSizes.map((columnSize, columnIndex) =>
-            (line[columnIndex] ?? '') + ' '.repeat(columnSize - (line[columnIndex] ?? []).length))
+        return this._maxColumnSizes.map((columnSize, columnIndex) => {
+            const toAlign = line[columnIndex] ?? [];
+            return this._alignment.value(toAlign,columnSize);
+        })
     }
 
     calculateMaxColumnSizes() {
@@ -28,9 +43,6 @@ class AlignColumns {
             })
         })
     }
-}
-
-class RightAlignment {
 }
 
 describe('Align Columns suite', () => {
