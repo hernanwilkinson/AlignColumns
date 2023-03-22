@@ -14,4 +14,8 @@ describe('Align Columns suite', () => {
         expect(alignColumns.value()).toEqual([])
     })
 
+    test('Should return the line with the column when there is one line and column', () => {
+        const alignColumns = new AlignColumns([['1234']])
+        expect(alignColumns.value()).toEqual([['1234']])
+    })
 })
