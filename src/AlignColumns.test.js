@@ -140,4 +140,8 @@ describe('Align Columns suite', () => {
         expect(alignColumns).toEqual([['123','abc']])
     })
 
+    test('Can align many lines with many columns', () => {
+        const alignColumns = AlignColumns.from('123$abc\n1$a', new CenterAlignment());
+        expect(alignColumns).toEqual([['123','abc'],[' 1 ',' a ']])
+    })
 })
