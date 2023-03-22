@@ -11,7 +11,7 @@ class AlignColumns {
             return this._lines.map(line => [line[0] + ' '.repeat(maxColumnSize - line[0].length)])
         } else {
             const maxColumnSize0 = this.maxColumnSizeAt(0)
-            const maxColumnSize1 = Math.max(0, ...this._lines.map(line => line[1].length))
+            const maxColumnSize1 = this.maxColumnSizeAt(1)
             return this._lines.map(line =>
                 [line[0] + ' '.repeat(maxColumnSize0 - line[0].length),
                  line[1] + ' '.repeat(maxColumnSize1 - line[1].length)])
