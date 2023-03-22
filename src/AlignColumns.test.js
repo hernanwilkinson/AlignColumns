@@ -6,7 +6,7 @@ class AlignColumns {
     }
 
     value() {
-        return this._lines.map(line => [line[0]])
+        return this._lines.map(line => [line[0] + ' '.repeat((this._lines[0])[0].length - line[0].length)])
     }
 }
 
