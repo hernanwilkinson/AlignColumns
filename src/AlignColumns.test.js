@@ -56,6 +56,9 @@ class AlignColumns {
     }
 }
 
+class CenterAlignment {
+}
+
 describe('Align Columns suite', () => {
     test('Should return no lines when there are no lines with columns to align', () => {
         const alignColumns = new AlignColumns([])
@@ -100,5 +103,10 @@ describe('Align Columns suite', () => {
     test('Can align to right', () => {
         const alignColumns = new AlignColumns([['12','abc'],['1234','a']], new RightAlignment())
         expect(alignColumns.value()).toEqual([['  12','abc'],['1234','  a']])
+    })
+
+    test('Alignment can be center', () => {
+        const alignColumns = new AlignColumns([['12','abc'],['1234','ab']], new CenterAlignment())
+        expect(alignColumns.value()).toEqual([[' 12 ','abc'],['1234',' ab']])
     })
 })
