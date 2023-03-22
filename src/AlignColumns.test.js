@@ -93,11 +93,15 @@ class AlignColumns {
                     .reduce((prev,current) => prev + current, '') + '*'
 
             return separator +'\n' +
-                linesWithAlignColumns
-                    .map(line => this.stringFor(line))
-                    .reduce((prev,current) => prev + current, '') +
+                this.stringForAll(linesWithAlignColumns) +
                 separator
         }
+    }
+
+    static stringForAll(linesWithAlignColumns) {
+        return linesWithAlignColumns
+            .map(line => this.stringFor(line))
+            .reduce((prev, current) => prev + current, '');
     }
 
     static stringFor(line) {
