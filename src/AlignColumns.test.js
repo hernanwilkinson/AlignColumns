@@ -4,7 +4,7 @@ class AlignColumns {
     }
 
     value() {
-        return undefined;
+        return [];
     }
 }
 
@@ -13,4 +13,5 @@ describe('Align Columns suite', () => {
         const alignColumns = new AlignColumns([])
         expect(alignColumns.value()).toEqual([])
     })
+
 })
