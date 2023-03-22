@@ -49,4 +49,8 @@ describe('Align Columns suite', () => {
         expect(alignColumns.value()).toEqual([['12  ','abc'],['1234','ab ']])
     })
 
+    test('Lines can have different number of columns', () => {
+        const alignColumns = new AlignColumns([['12','abc'],['1234']])
+        expect(alignColumns.value()).toEqual([['12  ','abc'],['1234','   ']])
+    })
 })
