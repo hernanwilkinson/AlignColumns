@@ -21,6 +21,14 @@ class RightAlignment extends Alignment {
     }
 }
 
+class CenterAlignment {
+    value(toAlign,size){
+        const leftSpaces = Math.ceil((size - toAlign.length) / 2)
+        const rightSpaces = size - toAlign.length - leftSpaces
+        return ' '.repeat(leftSpaces) + toAlign + ' '.repeat(rightSpaces)
+    }
+}
+
 class AlignColumns {
     _lines;
 
@@ -54,9 +62,6 @@ class AlignColumns {
             })
         })
     }
-}
-
-class CenterAlignment {
 }
 
 describe('Align Columns suite', () => {
