@@ -23,4 +23,9 @@ describe('Align Columns suite', () => {
         const alignColumns = new AlignColumns([['1234']])
         expect(alignColumns.value()).toEqual([['1234']])
     })
+
+    test('Should return lines with its columns for same column size', () => {
+        const alignColumns = new AlignColumns([['1234'],['abcd']])
+        expect(alignColumns.value()).toEqual([['1234'],['abcd']])
+    })
 })
