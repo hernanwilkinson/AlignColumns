@@ -2,19 +2,22 @@ class AlignColumns {
     _lines;
 
     constructor(lines) {
-        this._lines = lines;
+        this._lines = lines
     }
 
     value() {
-        this.calculateMaxColumnSizes();
+        this.calculateMaxColumnSizes()
 
-        return this._lines.map(line =>
-            this.alignColumnOfLine(line))
+        return this.linesWithColumnsAligned()
+    }
+
+    linesWithColumnsAligned() {
+        return this._lines.map(line => this.alignColumnOfLine(line))
     }
 
     alignColumnOfLine(line) {
         return this._maxColumnSizes.map((columnSize, columnIndex) =>
-            (line[columnIndex] ?? '') + ' '.repeat(columnSize - (line[columnIndex] ?? []).length));
+            (line[columnIndex] ?? '') + ' '.repeat(columnSize - (line[columnIndex] ?? []).length))
     }
 
     calculateMaxColumnSizes() {
