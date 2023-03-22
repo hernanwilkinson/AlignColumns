@@ -93,9 +93,12 @@ class AlignColumns {
                     .reduce((prev,current) => prev + current, '') + '*'
 
             return separator +'\n' +
-                linesWithAlignColumns[0]
-                    .map( cell => '|' + cell )
-                    .reduce((prev,current) => prev + current, '') + '|\n' +
+                linesWithAlignColumns
+                    .map(line =>
+                        line
+                            .map( cell => '|' + cell )
+                            .reduce((prev,current) => prev + current, '') + '|\n')
+                    .reduce((prev,current) => prev + current, '') +
                 separator
         }
     }
