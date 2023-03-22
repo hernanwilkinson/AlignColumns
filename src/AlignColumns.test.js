@@ -82,10 +82,6 @@ class AlignColumns {
             return '**\n' +
                 '||\n' +
                 '**';
-        else if(linesWithAlignColumns[0].length==1)
-            return '*' + '-'.repeat((linesWithAlignColumns[0])[0].length)+ '*\n' +
-                '|' + (linesWithAlignColumns[0])[0] + '|\n' +
-                '*' + '-'.repeat((linesWithAlignColumns[0])[0].length)+ '*';
         else {
             const separator =
                 linesWithAlignColumns[0]
