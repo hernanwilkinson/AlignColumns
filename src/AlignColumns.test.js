@@ -68,7 +68,7 @@ class AlignColumns {
         if(input.length==0)
             lines = []
         else
-            lines = [[input]]
+            lines = [input.split('$')]
 
         return new AlignColumns(lines,alignment).value()
     }
