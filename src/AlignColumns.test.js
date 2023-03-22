@@ -134,4 +134,10 @@ describe('Align Columns suite', () => {
         const alignColumns = AlignColumns.from('123', new CenterAlignment());
         expect(alignColumns).toEqual([['123']])
     })
+
+    test('Can align one lines with many columns', () => {
+        const alignColumns = AlignColumns.from('123$abc', new CenterAlignment());
+        expect(alignColumns).toEqual([['123','abc']])
+    })
+
 })
