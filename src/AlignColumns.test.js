@@ -6,10 +6,13 @@ class AlignColumns {
     }
 
     value() {
-        const maxColumnSizes = (this._lines[0]??[]).map( (_,columnIndex) => this.maxColumnSizeAt(columnIndex))
+        const maxNumberOfColumns = Math.max(0,...this._lines.map(line=>line.length))
+        const maxColumnSizes = []
+        for (let columnIndex = 0; columnIndex < maxNumberOfColumns; columnIndex++)
+            maxColumnSizes.push(this.maxColumnSizeAt(columnIndex))
 
         return this._lines.map(line =>
-            (this._lines[0]??[]).map( (_,columnIndex) =>
+            maxColumnSizes.map( (_,columnIndex) =>
                 (line[columnIndex]??'') + ' '.repeat(maxColumnSizes[columnIndex] - (line[columnIndex]??[]).length)))
     }
 
