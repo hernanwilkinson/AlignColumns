@@ -30,6 +30,9 @@ class AlignColumns {
     }
 }
 
+class RightAlignment {
+}
+
 describe('Align Columns suite', () => {
     test('Should return no lines when there are no lines with columns to align', () => {
         const alignColumns = new AlignColumns([])
@@ -69,5 +72,10 @@ describe('Align Columns suite', () => {
     test('Any line can have different number of columns', () => {
         const alignColumns = new AlignColumns([['12'],['1234','abc']])
         expect(alignColumns.value()).toEqual([['12  ','   '],['1234','abc']])
+    })
+
+    test('Can align to right', () => {
+        const alignColumns = new AlignColumns([['12','abc'],['1234','a']], new RightAlignment())
+        expect(alignColumns.value()).toEqual([['  12','abc'],['1234','  a']])
     })
 })
